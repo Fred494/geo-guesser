@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jogos da Noite · Anfitrião</title>
+<link rel="stylesheet" href="core/style.css">
+</head>
+<body class="host">
+<div id="topbar">
+  <button id="bSound" title="Som ligado/desligado">🔊</button>
+  <button id="bFull" title="Ecrã inteiro">⛶</button>
+  <button id="bMenu" title="Voltar ao lobby">⌂</button>
+</div>
+<div id="app"><div class="secintro"><p>A ligar…</p></div></div>
+<div id="floaters"></div>
+<div id="toast" class="hidden"></div>
+
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="core/common.js"></script>
+<script>window.Games = {};</script>
+<script src="core/host.js"></script>
+<script src="games/geoguesser/host.js"></script>
+<script>Host.init();</script>
+</body>
+</html>

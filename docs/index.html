@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jogos da Noite</title>
+<link rel="stylesheet" href="core/style.css">
+</head>
+<body>
+<div class="landing">
+  <h1>🎉 Jogos da Noite</h1>
+  <p class="muted">Mini jogos para jogar com amigos, cada um no seu telemóvel.</p>
+  <div><a class="btn big" href="host.html">📺 Sou o anfitrião</a></div>
+  <form id="f" style="display:grid;gap:.6rem;justify-items:center">
+    <input class="field" id="room" maxlength="4" placeholder="CÓDIGO DA SALA" style="max-width:16rem;text-transform:uppercase" autocomplete="off">
+    <button class="btn ghost" type="submit">📱 Entrar numa sala</button>
+  </form>
+</div>
+<script>
+document.getElementById("f").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const c = document.getElementById("room").value.trim().toUpperCase();
+  if (c) location.href = "play.html?room=" + encodeURIComponent(c);
+});
+</script>
+</body>
+</html>

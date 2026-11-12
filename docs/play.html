@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Jogos da Noite</title>
+<link rel="stylesheet" href="core/style.css">
+</head>
+<body class="player">
+<div id="pwrap">
+  <div id="phead" class="hidden"><span class="em"></span><span class="nm"></span><span class="sc"></span></div>
+  <div id="pmain"></div>
+</div>
+<div id="conn" class="conn hidden">A reconectar…</div>
+
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="core/common.js"></script>
+<script src="core/player.js"></script>
+<script src="games/geoguesser/player.js"></script>
+<script>Player.init();</script>
+</body>
+</html>

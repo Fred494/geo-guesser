@@ -1,0 +1,469 @@
+{
+  "_ajuda": "Edita este ficheiro para mudar perguntas. 'image' é o nome da foto em site/img/. Nas secções 'mc' (escolha múltipla) a resposta certa é 'answer' e as erradas estão em 'wrong' (a ordem é baralhada no jogo). Na secção 'text' (hard-core) 'accepted' são respostas alternativas aceites.",
+  "settings": {
+    "mcStartZoom": 10,
+    "mcZoomSeconds": 10,
+    "mcExtraSeconds": 5,
+    "mcMaxPoints": 1000,
+    "mcMinPoints": 200,
+    "textLevelSeconds": 5,
+    "textLevelPoints": [
+      1500,
+      1200,
+      900,
+      600,
+      300
+    ],
+    "textLevels": 5,
+    "textZoomLevels": [
+      6,
+      4,
+      2.6,
+      1.7,
+      1
+    ]
+  },
+  "sections": [
+    {
+      "id": "lisboa",
+      "name": "Lisboa",
+      "type": "mc",
+      "questions": [
+        {
+          "id": "lisboa-01",
+          "image": "lisboa-01.jpg",
+          "answer": "Convento do Carmo",
+          "wrong": [
+            "Portas do Sol",
+            "Sé de Lisboa",
+            "Praça de São Paulo"
+          ]
+        },
+        {
+          "id": "lisboa-02",
+          "image": "lisboa-02.jpg",
+          "answer": "Entrecampos",
+          "wrong": [
+            "Baixa",
+            "Alcântara",
+            "Marvila"
+          ]
+        },
+        {
+          "id": "lisboa-03",
+          "image": "lisboa-03.jpg",
+          "answer": "Entrecampos",
+          "wrong": [
+            "Príncipe Real",
+            "Areeiro",
+            "Alvalade"
+          ]
+        },
+        {
+          "id": "lisboa-04",
+          "image": "lisboa-04.jpg",
+          "answer": "Estádio do Restelo",
+          "wrong": [
+            "Belém Park",
+            "Estádio do Estoril",
+            "Estádio da Tapadinha"
+          ]
+        },
+        {
+          "id": "lisboa-05",
+          "image": "lisboa-05.jpg",
+          "answer": "Loucos",
+          "wrong": [
+            "Sóbrio",
+            "Avião",
+            "Monhés"
+          ]
+        },
+        {
+          "id": "lisboa-06",
+          "image": "lisboa-06.jpg",
+          "answer": "Lumiar",
+          "wrong": [
+            "Alfragide",
+            "Miraflores",
+            "Expo"
+          ]
+        },
+        {
+          "id": "lisboa-07",
+          "image": "lisboa-07.jpg",
+          "answer": "MEO Arena",
+          "wrong": [
+            "FIL",
+            "Vasco da Gama",
+            "Pavilhão do Conhecimento"
+          ]
+        },
+        {
+          "id": "lisboa-08",
+          "image": "lisboa-08.jpg",
+          "answer": "Miradouro do Jardim do Reconhecimento",
+          "wrong": [
+            "Miradouro da Graça",
+            "Miradouro das Portas do Sol",
+            "Miradouro da Senhora do Monte"
+          ]
+        },
+        {
+          "id": "lisboa-09",
+          "image": "lisboa-09.jpg",
+          "answer": "Olaias",
+          "wrong": [
+            "Amoreiras",
+            "IADE",
+            "Sede do Banco Nacional Ultramarino"
+          ]
+        },
+        {
+          "id": "lisboa-10",
+          "image": "lisboa-10.jpg",
+          "answer": "Praça da Figueira",
+          "wrong": [
+            "Praça do Rossio",
+            "Praça dos Restauradores",
+            "Praça do Martim Moniz"
+          ]
+        },
+        {
+          "id": "lisboa-11",
+          "image": "lisboa-11.jpg",
+          "answer": "Príncipe Real",
+          "wrong": [
+            "Avenida da Liberdade",
+            "Areeiro",
+            "Cais do Sodré"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "portugal",
+      "name": "Portugal",
+      "type": "mc",
+      "questions": [
+        {
+          "id": "portugal-01",
+          "image": "portugal-01.jpg",
+          "answer": "Badoca Safari Park",
+          "wrong": [
+            "Zoo de Lisboa",
+            "Aquamarine",
+            "Monte Selvagem"
+          ]
+        },
+        {
+          "id": "portugal-02",
+          "image": "portugal-02.jpg",
+          "answer": "Convento de Cristo",
+          "wrong": [
+            "Mosteiro dos Jerónimos",
+            "Mosteiro da Batalha",
+            "Mosteiro de Alcobaça"
+          ]
+        },
+        {
+          "id": "portugal-03",
+          "image": "portugal-03.jpg",
+          "answer": "Santuário do Cabo Espichel",
+          "wrong": [
+            "Santuário da Peninha",
+            "Santuário de Nossa Senhora da Nazaré",
+            "Santuário do Bom Jesus do Monte"
+          ]
+        },
+        {
+          "id": "portugal-04",
+          "image": "portugal-04.jpg",
+          "answer": "Estádio de Aveiro",
+          "wrong": [
+            "Estádio de Faro",
+            "Estádio de Coimbra",
+            "Estádio de Leiria"
+          ]
+        },
+        {
+          "id": "portugal-05",
+          "image": "portugal-05.jpg",
+          "answer": "Évora",
+          "wrong": [
+            "Lisboa",
+            "Elvas",
+            "Algarve"
+          ]
+        },
+        {
+          "id": "portugal-06",
+          "image": "portugal-06.jpg",
+          "answer": "Palácio de Vila Viçosa",
+          "wrong": [
+            "Palácio de Queluz",
+            "Paço dos Duques de Bragança",
+            "Palácio de Mateus"
+          ]
+        },
+        {
+          "id": "portugal-07",
+          "image": "portugal-07.jpg",
+          "answer": "Piódão",
+          "wrong": [
+            "Talasnal",
+            "Aigra Nova",
+            "Gondramaz"
+          ]
+        },
+        {
+          "id": "portugal-08",
+          "image": "portugal-08.jpg",
+          "answer": "Porto",
+          "wrong": [
+            "Guimarães",
+            "Braga",
+            "Bragança"
+          ]
+        },
+        {
+          "id": "portugal-09",
+          "image": "portugal-09.jpg",
+          "answer": "Praia do Tonel",
+          "wrong": [
+            "Praia da Samoqueira",
+            "Praia do Abreijo Largo",
+            "Praia dos Machados"
+          ]
+        },
+        {
+          "id": "portugal-10",
+          "image": "portugal-10.jpg",
+          "answer": "São Miguel",
+          "wrong": [
+            "Corvo",
+            "Faial",
+            "Pico"
+          ]
+        },
+        {
+          "id": "portugal-11",
+          "image": "portugal-11.jpg",
+          "answer": "Miradouro de Uijo",
+          "wrong": [
+            "Miradouro de São Leonardo de Galafura",
+            "Miradouro da Pedra Bela",
+            "Miradouro do Cabo Girão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mundo",
+      "name": "Mundo",
+      "type": "mc",
+      "questions": [
+        {
+          "id": "mundo-01",
+          "image": "mundo-01.jpg",
+          "answer": "Bolívia",
+          "wrong": [
+            "Peru",
+            "Nepal",
+            "Cazaquistão"
+          ]
+        },
+        {
+          "id": "mundo-02",
+          "image": "mundo-02.jpg",
+          "answer": "Brasil",
+          "wrong": [
+            "Peru",
+            "Egito",
+            "Namíbia"
+          ]
+        },
+        {
+          "id": "mundo-03",
+          "image": "mundo-03.jpg",
+          "answer": "China",
+          "wrong": [
+            "Japão",
+            "Singapura",
+            "Coreia do Sul"
+          ]
+        },
+        {
+          "id": "mundo-04",
+          "image": "mundo-04.jpg",
+          "answer": "Croácia",
+          "wrong": [
+            "Montenegro",
+            "Albânia",
+            "Bósnia"
+          ]
+        },
+        {
+          "id": "mundo-05",
+          "image": "mundo-05.jpg",
+          "answer": "Emirados Árabes Unidos",
+          "wrong": [
+            "Coreia do Sul",
+            "Arábia Saudita",
+            "Malásia"
+          ]
+        },
+        {
+          "id": "mundo-06",
+          "image": "mundo-06.jpg",
+          "answer": "Inglaterra",
+          "wrong": [
+            "Escócia",
+            "Irlanda",
+            "País de Gales"
+          ]
+        },
+        {
+          "id": "mundo-07",
+          "image": "mundo-07.jpg",
+          "answer": "México",
+          "wrong": [
+            "Guatemala",
+            "Belize",
+            "Indonésia"
+          ]
+        },
+        {
+          "id": "mundo-08",
+          "image": "mundo-08.jpg",
+          "answer": "Evereste",
+          "wrong": [
+            "Fitz Roy",
+            "Kilimanjaro",
+            "Denali"
+          ]
+        },
+        {
+          "id": "mundo-09",
+          "image": "mundo-09.jpg",
+          "answer": "Portugal",
+          "wrong": [
+            "Brasil",
+            "Bolívia",
+            "Itália"
+          ]
+        },
+        {
+          "id": "mundo-10",
+          "image": "mundo-10.jpg",
+          "answer": "República Checa",
+          "wrong": [
+            "Hungria",
+            "Itália",
+            "Alemanha"
+          ]
+        },
+        {
+          "id": "mundo-11",
+          "image": "mundo-11.jpg",
+          "answer": "Escócia",
+          "wrong": [
+            "Inglaterra",
+            "País de Gales",
+            "Irlanda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardcore",
+      "name": "Hard-core",
+      "type": "text",
+      "questions": [
+        {
+          "id": "hardcore-01",
+          "image": "hardcore-01.jpg",
+          "answer": "Bateria",
+          "accepted": []
+        },
+        {
+          "id": "hardcore-02",
+          "image": "hardcore-02.jpg",
+          "answer": "Berlinde",
+          "accepted": [
+            "bolinha de vidro",
+            "marble"
+          ]
+        },
+        {
+          "id": "hardcore-03",
+          "image": "hardcore-03.jpg",
+          "answer": "Chaleira",
+          "accepted": [
+            "kettle"
+          ]
+        },
+        {
+          "id": "hardcore-04",
+          "image": "hardcore-04.jpg",
+          "answer": "Hamster",
+          "accepted": [
+            "porquinho-da-índia",
+            "cobaia"
+          ]
+        },
+        {
+          "id": "hardcore-05",
+          "image": "hardcore-05.jpg",
+          "answer": "Limpador de gelo",
+          "accepted": [
+            "alisador de gelo"
+          ]
+        },
+        {
+          "id": "hardcore-06",
+          "image": "hardcore-06.jpg",
+          "answer": "Coala",
+          "accepted": [
+            "koala"
+          ]
+        },
+        {
+          "id": "hardcore-07",
+          "image": "hardcore-07.jpg",
+          "answer": "Macarrão",
+          "accepted": [
+            "macaroni",
+            "massa"
+          ]
+        },
+        {
+          "id": "hardcore-08",
+          "image": "hardcore-08.jpg",
+          "answer": "Papaia",
+          "accepted": [
+            "papaya",
+            "mamão"
+          ]
+        },
+        {
+          "id": "hardcore-09",
+          "image": "hardcore-09.jpg",
+          "answer": "Pêssego",
+          "accepted": [
+            "peach"
+          ]
+        },
+        {
+          "id": "hardcore-10",
+          "image": "hardcore-10.jpg",
+          "answer": "Ioiô",
+          "accepted": [
+            "yoyo",
+            "yo-yo"
+          ]
+        }
+      ]
+    }
+  ]
+}

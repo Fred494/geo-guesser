@@ -1,0 +1,11 @@
+import fs from "node:fs";
+globalThis.window = globalThis;
+eval(fs.readFileSync("../docs/core/common.js", "utf8").replace(/^window\.PALETTE[\s\S]*?window\.esc/m, "window.esc"));
+const t = (inp, ans, acc, exp) => { const r = matchesAnswer(inp, ans, acc); console.log(r === exp ? "ok " : "ERRO", JSON.stringify(inp), "->", ans, r); };
+t("bateria","Bateria",[],true); t("Bateía","Bateria",[],true); t("BATERIA ","Bateria",[],true);
+t("cotovelinhos","Macarrão",["macaroni","massa"],false); t("macarrao","Macarrão",["macaroni","massa"],true); t("massa","Macarrão",["macaroni","massa"],true);
+t("yo yo","Ioiô",["yoyo","yo-yo"],true); t("ioio","Ioiô",["yoyo","yo-yo"],true); t("koala","Coala",["koala"],true);
+t("porquinho da india","Hamster",["porquinho-da-índia","cobaia"],true); t("um hamster","Hamster",[],true);
+t("peach","Pêssego",["peach"],true); t("pessegos","Pêssego",["peach"],true); t("pera","Pêssego",["peach"],false);
+t("mamao","Papaia",["papaya","mamão"],true); t("alisador de gelo","Limpador de gelo",["alisador de gelo"],true); t("gelo","Limpador de gelo",["alisador de gelo"],false);
+t("chaleira","Chaleira",["kettle"],true); t("bolinha de vidro","Berlinde",["bolinha de vidro","marble"],true); t("cavalo","Hamster",[],false);
