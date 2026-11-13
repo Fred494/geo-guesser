@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "file": "Aww.mp3",
+    "name": "Aww"
+  },
+  {
+    "file": "Bing Bong.mp3",
+    "name": "Bing Bong"
+  },
+  {
+    "file": "Bruh.mp3",
+    "name": "Bruh"
+  },
+  {
+    "file": "Catch Me Outside.mp3",
+    "name": "Catch Me Outside"
+  },
+  {
+    "file": "Emotional damage.mp3",
+    "name": "Emotional damage"
+  },
+  {
+    "file": "Fah.mp3",
+    "name": "Fah"
+  },
+  {
+    "file": "Fuck off.mp3",
+    "name": "Fuck off"
+  },
+  {
+    "file": "Ha-Ha.mp3",
+    "name": "Ha Ha"
+  },
+  {
+    "file": "Hello mofugger.mp3",
+    "name": "Hello mofugger"
+  },
+  {
+    "file": "Huh.mp3",
+    "name": "Huh"
+  },
+  {
+    "file": "Meow meow.mp3",
+    "name": "Meow meow"
+  },
+  {
+    "file": "OH MY GOD.mp3",
+    "name": "OH MY GOD"
+  },
+  {
+    "file": "OH SHIT.mp3",
+    "name": "OH SHIT"
+  },
+  {
+    "file": "Rizz.mp3",
+    "name": "Rizz"
+  }
+]
