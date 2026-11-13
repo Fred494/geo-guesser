@@ -213,6 +213,15 @@
     H.broadcastViews(); renderLobby(); H.save();
   };
 
+  // Recomeça o jogo: pontos a zero e volta à sala. Os jogadores ligados ficam.
+  H.resetGame = () => {
+    if (H.inst && H.inst.stop) H.inst.stop();
+    H.playerList().forEach((p) => (p.byGame = {}));
+    H.inst = null; H.phase = "lobby"; H.gameId = null;
+    H.broadcastViews(); renderLobby(); H.save();
+    H.toast("Jogo reiniciado: pontos a zero. Os jogadores continuam na sala.");
+  };
+
   function resetAll() {
     if (!confirm("Apagar todos os jogadores e pontos e criar uma sala nova?")) return;
     if (H.inst && H.inst.stop) H.inst.stop();
@@ -250,6 +259,7 @@
     });
     const snd = document.getElementById("bSound");
     snd.onclick = () => { H.soundOn = !H.soundOn; snd.textContent = H.soundOn ? "🔊" : "🔇"; };
+    document.getElementById("bReset").onclick = () => { if (confirm("Reiniciar o jogo?\n\nOs pontos de todos voltam a zero e voltas à sala. Os jogadores continuam ligados.")) H.resetGame(); };
     document.getElementById("bFull").onclick = () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); };
     document.getElementById("bMenu").onclick = () => { if (H.phase === "game" && confirm("Sair do jogo e voltar ao lobby? Os pontos ficam guardados.")) H.exitToLobby(); };
   };

@@ -211,7 +211,7 @@ Games.geoguesser = function (host, Q) {
         const ok = effective(a);
         return `<div class="rrow arow ${ok ? "ok" : "no"}" style="--c:${p.color}" data-act="toggle" data-pid="${p.id}"><span class="em">${p.emoji}</span><span class="nm">${esc(p.name)}</span><span class="txt">${esc(a.text)}</span><span class="lvl">N${a.level}</span><span class="gain">${g.roundPts[p.id] ? "+" + g.roundPts[p.id] : ""}</span><span class="mark">${ok ? "✔" : "✘"}</span></div>`;
       }).join("");
-      body = imgCol + `</div><div class="side"><h3>Respostas (toca para inverter)</h3>${rows}<h3>Ranking</h3>${rankRows(false)}</div>`;
+      body = imgCol + `</div><div class="side"><h3 style="color:var(--accent)">⚖ Júri: toca numa resposta para a aceitar ✔ ou recusar ✘</h3>${rows}<h3>Ranking</h3>${rankRows(false)}</div>`;
     } else {
       const o = opts(q);
       const optHtml = g.optOrder.map((oi, i) => {
