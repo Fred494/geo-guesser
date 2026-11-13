@@ -1,19 +1,12 @@
 {
-  "_ajuda": "Edita este ficheiro para mudar perguntas. 'image' é o nome da foto em site/img/. Nas secções 'mc' (escolha múltipla) a resposta certa é 'answer' e as erradas estão em 'wrong' (a ordem é baralhada no jogo). Na secção 'text' (hard-core) 'accepted' são respostas alternativas aceites.",
+  "_ajuda": "Edita este ficheiro para mudar perguntas. 'image' é o nome da foto em docs/img/. Nas secções 'mc' (escolha múltipla) a resposta certa é 'answer' e as erradas estão em 'wrong' (a ordem é baralhada no jogo). Na secção 'text' (hard-core) 'accepted' são respostas alternativas aceites. Pontos: descem em linha reta de Max a Min e ficam em Min nos últimos 'TailSeconds' segundos (nas escolhas múltiplas: mcZoomSeconds de descida + mcExtraSeconds finais).",
   "settings": {
     "mcStartZoom": 10,
-    "mcZoomSeconds": 10,
-    "mcExtraSeconds": 5,
-    "mcMaxPoints": 1000,
+    "mcZoomSeconds": 8,
+    "mcExtraSeconds": 2,
+    "mcMaxPoints": 800,
     "mcMinPoints": 200,
     "textLevelSeconds": 5,
-    "textLevelPoints": [
-      1500,
-      1200,
-      900,
-      600,
-      300
-    ],
     "textLevels": 5,
     "textZoomLevels": [
       6,
@@ -21,7 +14,10 @@
       2.6,
       1.7,
       1
-    ]
+    ],
+    "textMaxPoints": 1500,
+    "textMinPoints": 300,
+    "textTailSeconds": 2
   },
   "sections": [
     {

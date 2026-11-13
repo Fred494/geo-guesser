@@ -1,4 +1,4 @@
-﻿# Jogos da Noite — GeoGuesser (mini jogo 1)
+# Jogos da Noite — GeoGuesser (mini jogo 1)
 
 Site estático (GitHub Pages). O portátil é o anfitrião (`host.html`), os telemóveis são os jogadores (`play.html`), ligados por WebRTC (PeerJS). Não há servidor nem contas.
 
@@ -31,9 +31,20 @@ node serve.mjs
 - Hard-core (`hardcore`): `answer` + `accepted` (outras respostas aceites).
 - `settings`: zoom inicial, durações, pontos e níveis de zoom do hard-core.
 
-## Acrescentar uma foto nova
-1. Põe a foto original na pasta certa (ex. `Lisboa/`).
-2. Cria uma cópia com lado maior ~2500 px, JPEG, em `docs/img/` (ex. `lisboa-12.jpg`).
-3. Acrescenta a pergunta no `questions.json` com `"image": "lisboa-12.jpg"`.
+## Acrescentar fotos novas
+Forma fácil: põe a foto na pasta certa (ex. `Lisboa/`) e corre, na pasta `tools`:
+```
+node add-photo.mjs lisboa "..\Lisboa\minha-foto.jpg" "Resposta certa" "Errada 1" "Errada 2" "Errada 3"
+node add-photo.mjs hardcore "..\HardCore\outra.jpg" "Resposta" "outra resposta aceite"
+```
+(secções: `lisboa`, `portugal`, `mundo`, `hardcore`). O script otimiza a foto para `docs/img/` e acrescenta a pergunta ao `questions.json`. Podes ter quantas fotos quiseres por secção.
+
+## Sons ao bloquear
+1. Põe os ficheiros de som (mp3, wav, ogg…) na pasta `docs/sounds/`. Sons curtos (1–3 s); tocam no máximo 3,5 s.
+2. Corre `node build-sounds.mjs` na pasta `tools`. O nome que os jogadores veem é o nome do ficheiro.
+3. Cada jogador escolhe o seu som ao entrar (toca para ouvir). Quem não escolher usa o "bip" normal.
+
+## Pontuação
+Definida em `docs/questions.json` → `settings`: escolha múltipla 10 s no total (800 → 200 durante 8 s, 200 nos últimos 2 s); hard-core 25 s (1500 → 300 em linha reta, 300 nos últimos 2 s). Aumenta o `mcZoomSeconds` ou muda `mcMaxPoints` para ajustar.
 
 Depois de editar: `git add -A`, `git commit -m "..."`, `git push`. O site atualiza em 1–2 minutos.

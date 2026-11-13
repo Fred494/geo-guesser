@@ -80,10 +80,12 @@ Games.geoguesser = function (host, Q) {
   // ---------- tempo e zoom ----------
   const total = () => (isText() ? S.textLevelSeconds * S.textLevels : S.mcZoomSeconds + S.mcExtraSeconds);
   const levelAt = (t) => Math.min(S.textLevels, Math.floor(t / S.textLevelSeconds) + 1);
-  function mcPoints(t) {
-    if (t <= S.mcZoomSeconds) return Math.round(S.mcMaxPoints - (S.mcMaxPoints - S.mcMinPoints) * (t / S.mcZoomSeconds));
-    return S.mcMinPoints;
+  // Pontos descem em linha reta de max a min e ficam em min nos últimos "tail" segundos.
+  function linearPts(t, descend, max, min) {
+    return t >= descend ? min : Math.round(max - (max - min) * (Math.max(0, t) / descend));
   }
+  const mcPoints = (t) => linearPts(t, S.mcZoomSeconds, S.mcMaxPoints, S.mcMinPoints);
+  const textPoints = (t) => linearPts(t, total() - S.textTailSeconds, S.textMaxPoints, S.textMinPoints);
   function scaleAt(t) {
     if (isText()) return S.textZoomLevels[levelAt(t) - 1];
     const u = Math.min(1, t / S.mcZoomSeconds), e = 1 - Math.pow(1 - u, 1.5); // abranda no fim
@@ -97,7 +99,7 @@ Games.geoguesser = function (host, Q) {
     const fill = document.getElementById("tfill");
     if (fill) { fill.style.width = Math.max(0, 100 - (t / T) * 100) + "%"; fill.classList.toggle("extra", !isText() && t > S.mcZoomSeconds); }
     const pot = document.getElementById("pot");
-    if (pot) pot.textContent = (isText() ? S.textLevelPoints[levelAt(t) - 1] : mcPoints(t)) + " pts";
+    if (pot) pot.textContent = (isText() ? textPoints(t) : mcPoints(t)) + " pts";
     if (isText()) {
       document.querySelectorAll(".lv").forEach((el, i) => { el.classList.toggle("on", i + 1 === levelAt(t)); el.classList.toggle("past", i + 1 < levelAt(t)); });
     }
@@ -120,7 +122,7 @@ Games.geoguesser = function (host, Q) {
       if (!(c >= 0 && c < 4)) return;
       g.answers[p.id] = { choice: c, t, correct: g.optOrder[c] === 0, pts: mcPoints(t) };
     }
-    host.sfx.lock(); host.floatEmoji(p.emoji);
+    host.lockSound(p); host.floatEmoji(p.emoji);
     host.sendView(p); host.save(); renderQuestionMeta();
     const online = players().filter((x) => x.connected);
     if (online.length && online.every((x) => g.answers[x.id])) setTimeout(endRound, 700);
@@ -129,7 +131,7 @@ Games.geoguesser = function (host, Q) {
   function recalc(p) {
     const a = g.answers[p.id];
     let pts = 0;
-    if (a && effective(a)) pts = isText() ? S.textLevelPoints[a.level - 1] : a.pts;
+    if (a && effective(a)) pts = isText() ? textPoints(a.t) : a.pts;
     addScore(p, pts - (g.roundPts[p.id] || 0));
     g.roundPts[p.id] = pts;
   }
@@ -181,7 +183,7 @@ Games.geoguesser = function (host, Q) {
   function renderQuestion() {
     const q = question();
     const optHtml = isText() ? "" : `<div class="opts">${g.optOrder.map((oi, i) => `<div class="opt" style="--c:${OPTION_COLORS[i]}"><span class="l">${OPTION_LETTERS[i]}</span>${esc(opts(q)[oi])}</div>`).join("")}</div>`;
-    const lv = isText() ? `<div class="levels">${S.textLevelPoints.map((pt, i) => `<div class="lv">Nível ${i + 1} · ${pt}</div>`).join("")}</div>` : "";
+    const lv = isText() ? `<div class="levels">${Array.from({ length: S.textLevels }, (_, i) => `<div class="lv">Nível ${i + 1}</div>`).join("")}</div>` : "";
     host.render(`<div class="stage">
       <div class="qhead">${secChip()}<span class="grow"></span><span class="answered" id="meta"></span><span class="pot" id="pot"></span></div>
       <div class="imgwrap"><img id="qimg" src="img/${q.image}" onerror="ggImgErr(this)" style="transform:scale(${scaleAt(0)})"></div>

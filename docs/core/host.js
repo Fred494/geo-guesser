@@ -5,7 +5,7 @@
   const app = document.getElementById("app");
   const H = (window.Host = {
     code: null, players: {}, nextId: 1, phase: "lobby", gameId: null, inst: null,
-    conns: {}, pending: new Set(), peer: null, soundOn: true, Q: null,
+    conns: {}, pending: new Set(), peer: null, soundOn: true, Q: null, sounds: [],
   });
 
   // ---------- utilitários ----------
@@ -46,6 +46,18 @@
     lock: () => { beep(660, 0.08, "sine", 0.08); beep(990, 0.12, "sine", 0.08, 0.08); },
     reveal: () => [523, 659, 784, 1047].forEach((f, i) => beep(f, 0.2, "triangle", 0.08, i * 0.11)),
     end: () => beep(220, 0.35, "sawtooth", 0.04),
+  };
+  // Som que cada jogador escolheu para quando bloqueia (docs/sounds/); sem som escolhido, toca o "bip" normal.
+  H.lockSound = (p) => {
+    const s = H.sounds.find((x) => x.file === p.sound);
+    if (!s) return H.sfx.lock();
+    if (!H.soundOn) return;
+    try {
+      const a = new Audio("sounds/" + encodeURIComponent(s.file));
+      a.volume = 0.9;
+      a.play().catch(() => H.sfx.lock());
+      setTimeout(() => a.pause(), 3500); // no máximo 3,5 s
+    } catch (e) { H.sfx.lock(); }
   };
 
   // ---------- persistência ----------
@@ -115,7 +127,8 @@
       if (H.playerList().some((x) => x.emoji === m.emoji)) return err("Esse emoji já foi escolhido por outro jogador.");
       const used = H.playerList().map((x) => x.color);
       const color = PALETTE.find((c) => !used.includes(c)) || PALETTE[H.playerList().length % PALETTE.length];
-      p = { id: "p" + H.nextId++, name, color, emoji: m.emoji, token: m.token, byGame: {}, connected: true };
+      const snd = H.sounds.find((x) => x.file === m.sound);
+      p = { id: "p" + H.nextId++, name, color, emoji: m.emoji, token: m.token, sound: snd ? snd.file : null, byGame: {}, connected: true };
       H.players[p.id] = p;
     }
     p.connected = true; conn._pid = p.id; H.conns[p.id] = conn; H.pending.delete(conn);
@@ -212,6 +225,10 @@
   H.init = async () => {
     try { H.Q = await (await fetch("questions.json", { cache: "no-cache" })).json(); }
     catch (e) { app.innerHTML = '<div class="secintro"><h1>⚠</h1><p>Não consegui ler o questions.json</p></div>'; return; }
+    try {
+      H.sounds = await (await fetch("sounds/sounds.json", { cache: "no-cache" })).json();
+      H.sounds.forEach((s) => fetch("sounds/" + encodeURIComponent(s.file)).catch(() => {})); // pré-carrega
+    } catch (e) { H.sounds = []; }
     const saved = (H.savedState = load());
     if (saved) {
       H.code = saved.code; H.nextId = saved.nextId || 1;

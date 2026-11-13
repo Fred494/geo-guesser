@@ -133,3 +133,8 @@ body.player { font-size: 18px; overflow: auto; }
 /* Landing */
 .landing { min-height: 100vh; display: grid; place-content: center; gap: 1.2rem; text-align: center; padding: 1rem; overflow: auto; }
 .landing h1 { font-size: 3rem; } .landing a { text-decoration: none; display: inline-block; }
+
+/* Escolha do som (telemóvel) */
+.slist { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; width: 100%; }
+.slist button { background: var(--panel); border: 2px solid transparent; border-radius: .6em; padding: .55em .4em; font-size: .9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.slist button.sel { border-color: var(--accent); background: var(--panel2); }

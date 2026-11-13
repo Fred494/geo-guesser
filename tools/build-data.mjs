@@ -73,8 +73,8 @@ const sections = [
 const out = {
   _ajuda: "Edita este ficheiro para mudar perguntas. 'image' é o nome da foto em docs/img/. Nas secções 'mc' (escolha múltipla) a resposta certa é 'answer' e as erradas estão em 'wrong' (a ordem é baralhada no jogo). Na secção 'text' (hard-core) 'accepted' são respostas alternativas aceites.",
   settings: {
-    mcStartZoom: 10, mcZoomSeconds: 10, mcExtraSeconds: 5, mcMaxPoints: 1000, mcMinPoints: 200,
-    textLevelSeconds: 5, textLevelPoints: [1500, 1200, 900, 600, 300], textLevels: 5,
+    mcStartZoom: 10, mcZoomSeconds: 8, mcExtraSeconds: 2, mcMaxPoints: 800, mcMinPoints: 200,
+    textLevelSeconds: 5, textMaxPoints: 1500, textMinPoints: 300, textTailSeconds: 2, textLevels: 5,
     textZoomLevels: [6, 4, 2.6, 1.7, 1],
   },
   sections: [],
