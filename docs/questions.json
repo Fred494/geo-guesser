@@ -134,6 +134,46 @@
             "Areeiro",
             "Cais do Sodré"
           ]
+        },
+        {
+          "id": "lisboa-12",
+          "image": "lisboa-12.jpg",
+          "answer": "Alvalade",
+          "wrong": [
+            "Roma",
+            "Alameda",
+            "Campo Pequeno"
+          ]
+        },
+        {
+          "id": "lisboa-13",
+          "image": "lisboa-13.jpg",
+          "answer": "Benfica",
+          "wrong": [
+            "Alfragide",
+            "Belém",
+            "Telheiras"
+          ]
+        },
+        {
+          "id": "lisboa-14",
+          "image": "lisboa-14.jpg",
+          "answer": "Laranjeiras",
+          "wrong": [
+            "Lumiar",
+            "Quinta das Conchas",
+            "Campo Grande"
+          ]
+        },
+        {
+          "id": "lisboa-15",
+          "image": "lisboa-15.jpg",
+          "answer": "Picoas",
+          "wrong": [
+            "Saldanha",
+            "Expo",
+            "Avenidas Novas"
+          ]
         }
       ]
     },
@@ -250,6 +290,36 @@
             "Miradouro de São Leonardo de Galafura",
             "Miradouro da Pedra Bela",
             "Miradouro do Cabo Girão"
+          ]
+        },
+        {
+          "id": "portugal-12",
+          "image": "portugal-12.jpg",
+          "answer": "Costa Nova",
+          "wrong": [
+            "Melides",
+            "Comporta",
+            "Salgados"
+          ]
+        },
+        {
+          "id": "portugal-13",
+          "image": "portugal-13.jpg",
+          "answer": "Faro",
+          "wrong": [
+            "Bragança",
+            "Braga",
+            "Beja"
+          ]
+        },
+        {
+          "id": "portugal-14",
+          "image": "portugal-14.jpg",
+          "answer": "Figueira da Foz",
+          "wrong": [
+            "Salgados",
+            "Meco",
+            "Aberta Nova"
           ]
         }
       ]
@@ -368,6 +438,46 @@
             "País de Gales",
             "Irlanda"
           ]
+        },
+        {
+          "id": "mundo-12",
+          "image": "mundo-12.jpg",
+          "answer": "Austrália",
+          "wrong": [
+            "EUA",
+            "Canadá",
+            "França"
+          ]
+        },
+        {
+          "id": "mundo-13",
+          "image": "mundo-13.jpg",
+          "answer": "Espanha",
+          "wrong": [
+            "Itália",
+            "França",
+            "Suíça"
+          ]
+        },
+        {
+          "id": "mundo-14",
+          "image": "mundo-14.jpg",
+          "answer": "Suécia",
+          "wrong": [
+            "Dinamarca",
+            "Finlândia",
+            "Eslovénia"
+          ]
+        },
+        {
+          "id": "mundo-15",
+          "image": "mundo-15.jpg",
+          "answer": "Tailândia",
+          "wrong": [
+            "China",
+            "Japão",
+            "Malásia"
+          ]
         }
       ]
     },
@@ -457,6 +567,51 @@
           "accepted": [
             "yoyo",
             "yo-yo"
+          ]
+        },
+        {
+          "id": "hardcore-11",
+          "image": "hardcore-11.jpg",
+          "answer": "Berbequim",
+          "accepted": [
+            "drill",
+            "broca"
+          ]
+        },
+        {
+          "id": "hardcore-12",
+          "image": "hardcore-12.jpg",
+          "answer": "Bicicleta",
+          "accepted": [
+            "bike",
+            "bicla"
+          ]
+        },
+        {
+          "id": "hardcore-13",
+          "image": "hardcore-13.jpg",
+          "answer": "Geleira",
+          "accepted": [
+            "freezer"
+          ]
+        },
+        {
+          "id": "hardcore-14",
+          "image": "hardcore-14.jpg",
+          "answer": "Hot Dog",
+          "accepted": [
+            "cachorro",
+            "cachorro quente"
+          ]
+        },
+        {
+          "id": "hardcore-15",
+          "image": "hardcore-15.jpg",
+          "answer": "Waffle",
+          "accepted": [
+            "gaufre",
+            "gofre",
+            "waffles"
           ]
         }
       ]
