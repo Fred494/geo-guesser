@@ -95,7 +95,7 @@ window.Player = (function () {
     const d = mk(`<h2>Código da sala</h2><input class="field" id="rc" maxlength="4" placeholder="ABCD" autocomplete="off" autocapitalize="characters" style="text-transform:uppercase"><button class="btn big" id="go">Entrar</button>`);
     main().replaceChildren(d);
     const go = () => { const c = d.querySelector("#rc").value.trim().toUpperCase(); if (c) location.search = "?room=" + encodeURIComponent(c); };
-    d.querySelector("#go").onclick = go; d.querySelector("#rc").onkeydown = (e) => e.key === "Enter" && go();
+    d.querySelector("#go").onclick = go; d.querySelector("#rc").addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
   }
 
   let chosen = null, chosenSound = null, previewAudio = null;
@@ -117,7 +117,7 @@ window.Player = (function () {
       if (!name) return (d.querySelector("#er").textContent = "Escreve um nome.");
       send_join(name, chosen, chosenSound);
     };
-    d.querySelector("#go").onclick = go; d.querySelector("#nm").onkeydown = (e) => e.key === "Enter" && go();
+    d.querySelector("#go").onclick = go; d.querySelector("#nm").addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
     refreshEmojis(); renderSounds();
   }
   function refreshEmojis() {

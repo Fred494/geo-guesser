@@ -32,7 +32,7 @@
       navigator.vibrate && navigator.vibrate(30);
       document.getElementById("pmain").replaceChildren(PlayerViews.text({ ...v, locked: t }, P));
     };
-    d.querySelector("#s").onclick = send; d.querySelector("#t").onkeydown = (e) => e.key === "Enter" && send();
+    d.querySelector("#s").onclick = send; d.querySelector("#t").addEventListener("keydown", (e) => { if (e.key === "Enter") send(); });
     return d;
   };
 })();
