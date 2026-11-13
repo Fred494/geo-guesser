@@ -222,8 +222,21 @@
     H.toast("Jogo reiniciado: pontos a zero. Os jogadores continuam na sala.");
   };
 
-  function resetAll() {
-    if (!confirm("Apagar todos os jogadores e pontos e criar uma sala nova?")) return;
+  // Aviso de confirmação dentro da página (os avisos do browser podem ser bloqueados e deixam o botão "morto").
+  H.ask = (title, text, okLabel) => new Promise((resolve) => {
+    H.modalOpen = true;
+    const m = document.createElement("div");
+    m.id = "modal";
+    m.innerHTML = `<div class="box"><h2>${esc(title)}</h2><p>${esc(text)}</p><div class="row"><button class="btn ghost" data-r="0">Cancelar</button><button class="btn" data-r="1">${esc(okLabel || "Confirmar")}</button></div></div>`;
+    const done = (v) => { H.modalOpen = false; m.remove(); document.removeEventListener("keydown", onKey, true); resolve(v); };
+    const onKey = (e) => { if (e.key === "Escape") { e.preventDefault(); done(false); } };
+    m.addEventListener("click", (e) => { const b = e.target.closest("[data-r]"); if (b) done(b.dataset.r === "1"); else if (e.target === m) done(false); });
+    document.addEventListener("keydown", onKey, true);
+    document.body.appendChild(m);
+  });
+
+  async function resetAll() {
+    if (!(await H.ask("Nova noite", "Apagar todos os jogadores e pontos e criar uma sala nova? Os telemóveis têm de ler o QR code outra vez.", "Apagar tudo"))) return;
     if (H.inst && H.inst.stop) H.inst.stop();
     H.playerList().forEach((p) => { const c = H.conns[p.id]; if (c) try { c.close(); } catch (e) {} });
     H.players = {}; H.conns = {}; H.nextId = 1; H.inst = null; H.phase = "lobby"; H.code = newCode();
@@ -255,12 +268,12 @@
       else if (H.inst && H.inst.onAction) H.inst.onAction(act, b);
     });
     document.addEventListener("keydown", (e) => {
-      if ((e.key === " " || e.key === "Enter") && H.inst && H.inst.onAction && !/INPUT|BUTTON/.test(e.target.tagName)) { e.preventDefault(); H.inst.onAction("next"); }
+      if (!H.modalOpen && (e.key === " " || e.key === "Enter") && H.inst && H.inst.onAction && !/INPUT|BUTTON/.test(e.target.tagName)) { e.preventDefault(); H.inst.onAction("next"); }
     });
     const snd = document.getElementById("bSound");
     snd.onclick = () => { H.soundOn = !H.soundOn; snd.textContent = H.soundOn ? "🔊" : "🔇"; };
-    document.getElementById("bReset").onclick = () => { if (confirm("Reiniciar o jogo?\n\nOs pontos de todos voltam a zero e voltas à sala. Os jogadores continuam ligados.")) H.resetGame(); };
+    document.getElementById("bReset").onclick = async () => { if (await H.ask("Reiniciar o jogo?", "Os pontos de todos voltam a zero e voltas à sala. Os jogadores continuam ligados.", "Reiniciar")) H.resetGame(); };
     document.getElementById("bFull").onclick = () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); };
-    document.getElementById("bMenu").onclick = () => { if (H.phase === "game" && confirm("Sair do jogo e voltar ao lobby? Os pontos ficam guardados.")) H.exitToLobby(); };
+    document.getElementById("bMenu").onclick = async () => { if (H.phase === "game" && (await H.ask("Voltar à sala?", "Sais do jogo e voltas ao lobby. Os pontos ficam guardados.", "Voltar à sala"))) H.exitToLobby(); };
   };
 })();
